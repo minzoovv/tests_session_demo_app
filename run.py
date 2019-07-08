@@ -1,9 +1,8 @@
 import os
 
-from sanic import Sanic
+from demo_app.app import app
 
 
-app = Sanic('demo_application')
 try:
     port = int(os.environ['DEMO_APPLICATION_PORT'])
 except KeyError:
