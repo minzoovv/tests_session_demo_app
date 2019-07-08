@@ -1,0 +1,4 @@
+sanic
+localstack
+pytest
+pytest-asyncio
