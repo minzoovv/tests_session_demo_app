@@ -27,13 +27,13 @@ class DivideTwoNumbersView(HTTPMethodView):
             ZeroDivisionError: client requested to divide by zero
         """
         try:
-            dividend = request.data['dividend']
-            divisor = request.data['divisor']
+            dividend = request.json['dividend']
+            divisor = request.json['divisor']
 
             if not isinstance(dividend, int) or not isinstance(divisor, int):
                 raise TypeError
         except KeyError as e:
-            raise InvalidArgument(f"Should provide dividend and divisor, but only {str(e)} is provided. ")
+            raise InvalidArgument(f"Should provide dividend and divisor, {str(e)} is missing.")
         except TypeError:
             raise InvalidArgument("Both divisor or dividend should be provided as int.")
 
