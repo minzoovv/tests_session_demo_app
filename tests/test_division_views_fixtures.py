@@ -61,7 +61,7 @@ def test_division_view_success_double(sanic_application):
 
     assert response.status == 200
     assert 'answer' in response.json
-    assert round(response.json['answer'], 2) == 2.14
+    assert response.json['answer'] == 2.14
 
 
 def test_division_view_failure_invalid_data_type(sanic_application):

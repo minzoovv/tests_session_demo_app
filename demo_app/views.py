@@ -38,6 +38,6 @@ class DivideTwoNumbersView(HTTPMethodView):
             raise InvalidArgument("Both divisor or dividend should be provided as int.")
 
         try:
-            return json({'answer': dividend / divisor}, status=200)
+            return json({'answer': round(dividend / divisor, 2)}, status=200)
         except ZeroDivisionError:
             raise InvalidArgument("Cannot divide by zero.")
